@@ -27,9 +27,6 @@ Hébergement sur serveurs dédiés propriétaires, maintenance préventive et co
 ### Samuel Alhadef - CEO/CCO (Chief Communication Officer)
 Responsable de la relation client. Il écoute et comprend les besoins des clients, répond à leurs questions et s'assure que chaque projet avance bien. Point de contact principal du premier rendez-vous jusqu'à la livraison.
 
-### Célestin Godefroy - COO (Chief Operational Officer) / Responsable Communication
-Coordinateur des opérations et garant du bon déroulement des projets. Il veille au respect des délais et à la qualité de chaque étape. Également chargé de la croissance et de la notoriété de Mousequetaire.
-
 ### Ilan Maouchi - CTO (Chief Technical Officer)
 Expert technique de l'équipe. Il conçoit les solutions et choisit les technologies adaptées à chaque projet. Il transforme les idées des clients en réalités numériques fonctionnelles et innovantes.
 

@@ -14,14 +14,6 @@ const teamMembers = [
     image: "/images/photo-samuel.jpg",
   },
   {
-    id: 2,
-    name: "C\u00e9lestin Godefroy",
-    role: "COO | Chief Operational Officer / Responsable Communication",
-    description:
-      "Je coordonne toutes nos op\u00e9rations et veille au bon d\u00e9roulement de votre projet. Je m'assure que les d\u00e9lais sont respect\u00e9s et que chaque \u00e9tape est r\u00e9alis\u00e9e avec qualit\u00e9. Je suis \u00e9galement charg\u00e9 de faire conna\u00eetre et cro\u00eetre Mousequetaires.",
-    image: "/images/photo-c\u00e9lestin.jpg",
-  },
-  {
     id: 3,
     name: "Ilan Maouchi",
     role: "CTO | Chief Technical Officer",
