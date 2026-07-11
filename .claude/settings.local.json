@@ -18,7 +18,21 @@
       "Bash(npx next:*)",
       "Bash(npm uninstall:*)",
       "Bash(rsync -avz --delete --exclude '.git' --exclude 'node_modules' --exclude '.next' --exclude '.env.local' -e \"ssh -i C:\\\\Users\\\\mairi\\\\.ssh\\\\id_ed25519\" ./ root@192.168.1.4:/mnt/tank/mousequetaire-site/)",
-      "WebSearch"
+      "WebSearch",
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(npm run *)",
+      "Bash(npm install *)",
+      "Bash(timeout 40 bash -c 'until curl -sf http://localhost:3000 >/dev/null; do sleep 1; done')",
+      "Bash(command -v chromium-cli)",
+      "Bash(npm ls *)",
+      "Bash(npx --no-install playwright --version)",
+      "Bash(curl -s http://localhost:3000/apropos -o 'C:\\\\Users\\\\jamet\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-jamet-OneDrive-Documents-GitHub-mousequetaire-site\\\\53b11918-9c7c-46fa-97a3-2e1ae83381ba\\\\scratchpad/apropos.html')",
+      "Bash(node -e ' *)",
+      "Bash(npx --yes playwright install chromium --with-deps)",
+      "Bash(echo \"started in background, pid $!\")",
+      "Bash(tasklist //FI \"IMAGENAME eq node.exe\")",
+      "Bash(npx --yes playwright screenshot '--wait-for-selector=text=Notre équipe' --full-page --viewport-size=1280,2000 http://localhost:3000/apropos 'C:\\\\Users\\\\jamet\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-jamet-OneDrive-Documents-GitHub-mousequetaire-site\\\\53b11918-9c7c-46fa-97a3-2e1ae83381ba\\\\scratchpad/apropos.png')"
     ],
     "deny": [],
     "ask": []
