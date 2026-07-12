@@ -32,7 +32,9 @@
       "Bash(npx --yes playwright install chromium --with-deps)",
       "Bash(echo \"started in background, pid $!\")",
       "Bash(tasklist //FI \"IMAGENAME eq node.exe\")",
-      "Bash(npx --yes playwright screenshot '--wait-for-selector=text=Notre équipe' --full-page --viewport-size=1280,2000 http://localhost:3000/apropos 'C:\\\\Users\\\\jamet\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-jamet-OneDrive-Documents-GitHub-mousequetaire-site\\\\53b11918-9c7c-46fa-97a3-2e1ae83381ba\\\\scratchpad/apropos.png')"
+      "Bash(npx --yes playwright screenshot '--wait-for-selector=text=Notre équipe' --full-page --viewport-size=1280,2000 http://localhost:3000/apropos 'C:\\\\Users\\\\jamet\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-jamet-OneDrive-Documents-GitHub-mousequetaire-site\\\\53b11918-9c7c-46fa-97a3-2e1ae83381ba\\\\scratchpad/apropos.png')",
+      "Bash(echo \"exit: $?\")",
+      "Bash(node ./__shot_tmp.js \"C:\\\\Users\\\\jamet\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-jamet-OneDrive-Documents-GitHub-mousequetaire-site\\\\53b11918-9c7c-46fa-97a3-2e1ae83381ba\\\\scratchpad\\\\apropos2.png\")"
     ],
     "deny": [],
     "ask": []
