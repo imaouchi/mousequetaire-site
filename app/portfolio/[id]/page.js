@@ -1,6 +1,10 @@
+import { notFound } from "next/navigation";
 import { getProject, portfolioItems } from "@/data/portfolioItems";
 import { BreadcrumbSchema } from "@/app/schema";
 import ProjectDetailsClient from "./ProjectDetailsClient";
+
+// Les projets retirés du portfolio répondent en 404.
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return portfolioItems.map((item) => ({
@@ -94,6 +98,7 @@ function ProjectSchema({ project }) {
 export default async function ProjectDetailsPage({ params }) {
   const { id } = await params;
   const project = getProject(id);
+  if (!project) notFound();
 
   return (
     <>
