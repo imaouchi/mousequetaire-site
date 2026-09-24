@@ -252,19 +252,19 @@ const projects = [
     client: "Mairie de Chartrettes",
     year: "2024",
     accent: "#3b82f6",
-    excerpt: "Réserver une salle municipale en ligne, en quelques clics.",
+    excerpt: "Les salles municipales, les conventions et les paiements au même endroit.",
     description:
-      "Application de réservation des salles municipales de Chartrettes. Les associations consultent les bâtiments et salles disponibles (complexe sportif, espace culturel…), visualisent les créneaux libres sur un calendrier interactif et soumettent leur demande en ligne. Côté mairie, un tableau de bord permet de valider les demandes, de gérer les tarifs et de consulter l'historique, avec des notifications automatiques à chaque étape.",
+      "Plateforme de réservation des salles municipales de Chartrettes (mairie, complexe sportif, espace culturel, vergers), utilisée par les associations et les habitants. Chacun choisit un bâtiment, une salle et un créneau sur un calendrier hebdomadaire, suit l'état de ses demandes et retrouve ses documents. Les associations signent leur convention annuelle en ligne et réservent leurs créneaux récurrents pour toute l'année, avec détection automatique des conflits. Côté mairie, un back-office complet gère les associations, les bâtiments et les salles, les grilles tarifaires, le règlement intérieur, les modèles de conventions, la validation des demandes, les paiements et les statistiques d'occupation.",
     challenge:
-      "Digitaliser les réservations avec un parcours simple pour les administrés et un outil de gestion efficace pour la mairie.",
+      "Remplacer un processus papier (formulaires, conventions, suivi des paiements) par un outil que les associations adoptent vraiment, tout en donnant à la mairie une vision claire de l'occupation de ses salles.",
     solution:
-      "Application Next.js avec calendrier interactif, gestion des rôles et workflow de validation des demandes.",
+      "Application Next.js avec connexion par e-mail ou Google (NextAuth), vérification des comptes, base Drizzle/libSQL, calcul automatique des tarifs, conventions et règlement générés en PDF, guide d'utilisation intégré, export des données personnelles (RGPD) et tableau de bord d'administration.",
     results:
-      "Un processus de réservation simplifié pour les habitants comme pour l'équipe municipale.",
-    technologies: ["Next.js", "TailwindCSS"],
-    link: null,
-    linkLabel: null,
-    ...visuals("reservation-salles-chartrettes", 4),
+      "Un service en ligne sur chartrettes-reservation-salle.com : demandes, validations, conventions et paiements sont centralisés et mis à jour en temps réel.",
+    technologies: ["Next.js", "NextAuth", "Drizzle ORM", "libSQL", "jsPDF", "TailwindCSS"],
+    link: "https://chartrettes-reservation-salle.com/",
+    linkLabel: "Visiter le site",
+    ...visuals("reservation-salles-chartrettes", 5),
   },
   {
     id: 12,
@@ -311,26 +311,70 @@ const projects = [
     ...visuals("vektroid", 3),
   },
   {
-    id: 14,
-    slug: "wizzelek",
-    title: "Wizzelek — Disjoncteurs",
-    categories: ["ecommerce", "web"],
-    client: "Vendeur Amazon",
-    year: "2023",
-    accent: "#f59e0b",
-    excerpt: "Des fiches produits techniques qui donnent envie d'acheter.",
+    id: 16,
+    slug: "liying-xie",
+    title: "Liying Xie — Artiste contemporaine",
+    categories: ["web", "creatif"],
+    client: "Liying Xie",
+    year: "2026",
+    accent: "#c0392b",
+    excerpt: "Un site-galerie trilingue pour une artiste franco-chinoise, avec son propre CMS.",
     description:
-      "Site e-commerce pour un vendeur professionnel Amazon de disjoncteurs et de matériel électrique. Fiches produits techniques (spécifications, normes, schémas de branchement), guides de choix et tableaux comparatifs aident électriciens et particuliers à trouver le bon modèle. Le design est pensé pour la conversion, avec des éléments de réassurance et un parcours d'achat qui redirige vers Amazon.",
+      "Site vitrine de Liying Xie, artiste contemporaine franco-chinoise née à Shanghai et installée dans la région de Fontainebleau. Le site présente son travail par médium (dessin sur papier, dessin sur tissu, gravure sur céramique, peinture, sculpture, installations), sa biographie, une frise chronologique de ses expositions personnelles et collectives, la presse, ses ateliers et un formulaire de contact. Tout le contenu existe en français, en anglais et en chinois, avec un sélecteur de langue.",
     challenge:
-      "Rendre des spécifications techniques accessibles tout en maximisant le taux de conversion.",
+      "Mettre en valeur des œuvres très matérielles (sculptures, installations, dessins à l'encre) avec une mise en page sobre, et permettre à l'artiste de tout mettre à jour elle-même, dans trois langues.",
     solution:
-      "Fiches produits détaillées, comparatifs visuels, guides d'achat et éléments de réassurance.",
+      "Site sur mesure piloté par un fichier de contenu, avec un mini-CMS maison : une page d'administration protégée pour modifier chaque texte en FR / EN / 中文, ajouter des œuvres, des expositions ou des articles de presse et téléverser des images, redimensionnées et optimisées automatiquement. Le formulaire de contact envoie les messages par e-mail.",
     results:
-      "Une présentation claire des produits et un parcours d'achat simplifié vers Amazon.",
-    technologies: ["HTML", "CSS", "JavaScript"],
-    link: null,
-    linkLabel: null,
-    ...visuals("wizzelek", 1),
+      "Une galerie en ligne sobre et élégante, que l'artiste met à jour en autonomie au fil de ses expositions.",
+    technologies: ["HTML", "CSS", "JavaScript", "Node.js", "Express", "Sharp", "Nodemailer"],
+    link: "https://liying-xie.com/",
+    linkLabel: "Visiter le site",
+    ...visuals("liying-xie", 5),
+  },
+  {
+    id: 17,
+    slug: "fleurs-de-lysandre",
+    title: "Les Fleurs de Lysandre",
+    categories: ["web"],
+    client: "Les Fleurs de Lysandre",
+    year: "2026",
+    accent: "#d4af37",
+    excerpt: "Le site d'une fleuriste artisanale, aussi délicat que ses bouquets.",
+    description:
+      "Site de la boutique Les Fleurs de Lysandre, fleuriste artisanale à Chartrettes depuis 2009, tenue par Marie-Neige Vilain, médaillée d'Excellence Artisanale. Le site raconte l'histoire de la boutique et de son atelier, présente les prestations (bouquets sur mesure, mariages et événementiel, compositions de deuil) avec des galeries photo, et donne toutes les infos pratiques : adresse, horaires, accès et plan. Un formulaire de demande de devis permet de préparer un événement en ligne.",
+    challenge:
+      "Traduire l'univers raffiné et végétal d'une artisane fleuriste sur le web, tout en restant simple pour la clientèle locale qui cherche surtout un horaire, une adresse ou un devis.",
+    solution:
+      "Site Next.js à l'ambiance vert profond et doré, défilement fluide (Lenis) et animations d'apparition (GSAP, Motion), pages dédiées par prestation, formulaire de devis envoyé par e-mail et espace d'administration pour mettre à jour textes et photos.",
+    results:
+      "Une vitrine à l'image de la boutique, avec un parcours clair vers la demande de devis pour les mariages et les événements.",
+    technologies: ["Next.js", "React", "TailwindCSS", "GSAP", "Motion", "Lenis", "Nodemailer"],
+    link: "https://les-fleurs-de-lysandre.com/",
+    linkLabel: "Visiter le site",
+    ...visuals("fleurs-de-lysandre", 5),
+  },
+  {
+    id: 18,
+    slug: "ariane-thomas-psychomotricienne",
+    title: "L'Instant Psychomot'",
+    categories: ["web"],
+    client: "Ariane Thomas, psychomotricienne",
+    year: "2026",
+    accent: "#22c55e",
+    excerpt: "Un site chaleureux et rassurant pour un cabinet de psychomotricité.",
+    description:
+      "Site du cabinet L'Instant Psychomot' d'Ariane Thomas, psychomotricienne diplômée d'État à Fontainebleau, qui accompagne les enfants dans le développement de leurs compétences motrices, émotionnelles et relationnelles. Le site présente son parcours et ses formations, explique la psychomotricité et le déroulé d'un suivi, affiche les tarifs en toute transparence et met en avant les ateliers PEHP (guidance parentale méthode Barkley) avec inscription. Les parents trouvent en un coup d'œil l'adresse, le plan et le téléphone pour prendre rendez-vous.",
+    challenge:
+      "Rendre une spécialité paramédicale compréhensible par les parents, inspirer confiance dès la première visite et ressortir sur les recherches locales (psychomotricienne Fontainebleau, bilan psychomoteur, TDAH).",
+    solution:
+      "Site léger en HTML/CSS/JavaScript, typographie manuscrite et palette douce, contenus en accordéons, frise de l'expérience professionnelle, carte intégrée et optimisation SEO locale.",
+    results:
+      "Un site rapide et rassurant qui présente clairement le cabinet, ses tarifs et les ateliers PEHP, et facilite la prise de rendez-vous.",
+    technologies: ["HTML", "CSS", "JavaScript", "SEO"],
+    link: "https://ariane-thomas-psychomotricienne.com/",
+    linkLabel: "Visiter le site",
+    ...visuals("ariane-thomas-psychomotricienne", 5),
   },
   {
     id: 15,

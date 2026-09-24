@@ -111,10 +111,11 @@ PROJECTS = [
         "slug": "reservation-salles-chartrettes",
         "colors": ((37, 99, 235), (96, 165, 250)),
         "shots": [
-            ("reservation-chartrettes/selectionbatiment.png", None),
+            ("reservation-chartrettes/connexion.jpg", None),
             ("reservation-chartrettes/ecrancalendrier.png", None),
+            ("reservation-chartrettes/selectionbatiment.png", None),
             ("reservation-chartrettes/selectionsalle.png", None),
-            ("reservation-chartrettes/ecran-acueille.png", None),
+            ("reservation-chartrettes/guide.jpg", None),
         ],
     },
     {
@@ -137,9 +138,37 @@ PROJECTS = [
         ],
     },
     {
-        "slug": "wizzelek",
-        "colors": ((245, 158, 11), (29, 78, 216)),
-        "icon": "wizzelek/icon.png",
+        "slug": "liying-xie",
+        "colors": ((192, 57, 43), (196, 165, 122)),
+        "shots": [
+            ("liying-xie/accueil.jpg", None),
+            ("liying-xie/oeuvres.jpg", None),
+            ("liying-xie/expositions.jpg", None),
+            ("liying-xie/dessins.jpg", None),
+            ("liying-xie/frise-expositions.jpg", None),
+        ],
+    },
+    {
+        "slug": "fleurs-de-lysandre",
+        "colors": ((34, 110, 60), (212, 175, 55)),
+        "shots": [
+            ("fleurs-lysandre/accueil.jpg", None),
+            ("fleurs-lysandre/art-floral.jpg", None),
+            ("fleurs-lysandre/lieux.jpg", None),
+            ("fleurs-lysandre/galerie-evenementiel.jpg", None),
+            ("fleurs-lysandre/deuil.jpg", None),
+        ],
+    },
+    {
+        "slug": "ariane-thomas-psychomotricienne",
+        "colors": ((37, 99, 235), (34, 197, 94)),
+        "shots": [
+            ("ariane-psychomotricienne/accueil.jpg", None),
+            ("ariane-psychomotricienne/parcours.jpg", None),
+            ("ariane-psychomotricienne/pehp.jpg", None),
+            ("ariane-psychomotricienne/experience.jpg", None),
+            ("ariane-psychomotricienne/contact.jpg", None),
+        ],
     },
     {
         "slug": "site-mousequetaire",

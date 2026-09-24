@@ -23,6 +23,10 @@
 - [Congé Chartrettes](https://mousequetaire.com/portfolio/5): Application web + boîtier de badgeage IoT (ESP32) pour la mairie de Chartrettes - gestion des congés et présences.
 - [Apprentissage de Langues IA](https://mousequetaire.com/portfolio/4): Application d'apprentissage de langues propulsée par l'IA Gemini de Google avec exercices adaptatifs.
 - [Pizzeria Chartrettes](https://mousequetaire.com/portfolio/10): Site vitrine optimisé pour le référencement local d'une pizzeria.
+- [Réservation de salles Chartrettes](https://mousequetaire.com/portfolio/11): Plateforme de réservation des salles municipales pour les associations et habitants de Chartrettes - conventions, tarifs et paiements en ligne.
+- [Liying Xie](https://mousequetaire.com/portfolio/16): Site-galerie trilingue (FR/EN/中文) avec CMS sur mesure pour une artiste contemporaine franco-chinoise.
+- [Les Fleurs de Lysandre](https://mousequetaire.com/portfolio/17): Site Next.js d'une fleuriste artisanale à Chartrettes - prestations, galeries et demande de devis.
+- [L'Instant Psychomot'](https://mousequetaire.com/portfolio/18): Site d'un cabinet de psychomotricité à Fontainebleau - parcours, tarifs et ateliers PEHP.
 
 ## Contact
 
