@@ -1,4 +1,4 @@
-import { portfolioItems } from "@/data/portfolioItems";
+import { getProject, portfolioItems } from "@/data/portfolioItems";
 import { BreadcrumbSchema } from "@/app/schema";
 import ProjectDetailsClient from "./ProjectDetailsClient";
 
@@ -10,7 +10,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
-  const project = portfolioItems.find((item) => item.id === parseInt(id));
+  const project = getProject(id);
 
   if (!project) {
     return {
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }) {
       url: `https://mousequetaire.com/portfolio/${project.id}`,
       images: [
         {
-          url: project.image,
+          url: project.og,
           width: 1200,
           height: 630,
           alt: `${project.title} - Projet ${project.technologies[0] || "web"} par Mousequetaire`,
@@ -50,7 +50,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: `${project.title} | Mousequetaire`,
       description: shortDesc,
-      images: [project.image],
+      images: [project.og],
     },
     alternates: {
       canonical: `https://mousequetaire.com/portfolio/${project.id}`,
@@ -65,7 +65,7 @@ function ProjectSchema({ project }) {
     name: project.title,
     description: project.description,
     url: `https://mousequetaire.com/portfolio/${project.id}`,
-    image: `https://mousequetaire.com${project.image}`,
+    image: `https://mousequetaire.com${project.og}`,
     dateCreated: project.year,
     creator: {
       "@type": "Organization",
@@ -73,7 +73,8 @@ function ProjectSchema({ project }) {
       url: "https://mousequetaire.com",
     },
     ...(project.client !== "Projet personnel" &&
-      project.client !== "Projet artistique" && {
+      project.client !== "Projet artistique" &&
+      project.client !== "Mousequetaire" && {
         client: {
           "@type": "Organization",
           name: project.client,
@@ -92,7 +93,7 @@ function ProjectSchema({ project }) {
 
 export default async function ProjectDetailsPage({ params }) {
   const { id } = await params;
-  const project = portfolioItems.find((item) => item.id === parseInt(id));
+  const project = getProject(id);
 
   return (
     <>

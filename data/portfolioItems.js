@@ -1,342 +1,369 @@
-export const portfolioItems = [
+// Source unique des projets du portfolio.
+// Les visuels sont générés par scripts/generate-portfolio-images.py
+// dans public/images/portfolio/<slug>/ (cover.webp, 01.webp…, og.jpg).
+
+export const categories = [
+  { id: "all", label: "Tout" },
+  { id: "web", label: "Sites web" },
+  { id: "apps", label: "Applications" },
+  { id: "ia", label: "IA" },
+  { id: "ecommerce", label: "E-commerce" },
+  { id: "creatif", label: "Créatif" },
+];
+
+const visuals = (slug, slides) => ({
+  cover: `/images/portfolio/${slug}/cover.webp`,
+  og: `/images/portfolio/${slug}/og.jpg`,
+  gallery: Array.from(
+    { length: slides },
+    (_, i) => `/images/portfolio/${slug}/${String(i + 1).padStart(2, "0")}.webp`
+  ),
+});
+
+const projects = [
   {
     id: 1,
+    slug: "murder-party",
     title: "Murder Party App",
-    description:
-      "Application web interactive conçue pour organiser et animer des murder parties entre amis. Le joueur hote cree un scenario complet avec des personnages, des indices caches et des rebondissements. Chaque participant recoit son role, ses objectifs secrets et ses informations via une interface dediee. Le jeu se deroule en temps reel avec un systeme de phases (enquete, accusation, revelation) qui guide les joueurs tout au long de la partie. L'application gere automatiquement la distribution des indices au bon moment et permet aux joueurs d'echanger des informations entre eux. L'interface est entierement thematique avec une ambiance visuelle sombre et immersive adaptee a l'univers du jeu.",
-    image: "/images/projets/app-murder party/menueprincipal.png",
-    importance: 3,
-    technologies: ["Next.js", "TailwindCSS"],
+    categories: ["apps"],
     client: "Projet personnel",
     year: "2024",
-    link: null,
-    linkLabel: "Voir sur GitHub",
+    accent: "#d4a73a",
+    excerpt: "Une enquête grandeur nature, orchestrée depuis le navigateur.",
+    description:
+      "Application web interactive conçue pour organiser et animer des murder parties entre amis. L'hôte crée un scénario complet avec personnages, indices cachés et rebondissements. Chaque participant reçoit son rôle, ses objectifs secrets et ses informations via une interface dédiée. Le jeu se déroule en temps réel avec un système de phases (enquête, accusation, révélation) et une distribution automatique des indices au bon moment.",
     challenge:
-      "Concevoir une experience de jeu fluide et immersive en temps reel, avec gestion des roles, des indices et du deroulement du scenario pour plusieurs joueurs simultanement.",
+      "Concevoir une expérience de jeu fluide et immersive en temps réel, avec gestion des rôles, des indices et du déroulement du scénario pour plusieurs joueurs simultanément.",
     solution:
-      "Developpement d'une application Next.js avec un systeme de gestion d'etat en temps reel, des interfaces thematiques pour chaque role et un moteur de scenario flexible.",
+      "Application Next.js avec gestion d'état en temps réel, interfaces thématiques pour chaque rôle et moteur de scénario flexible.",
     results:
-      "Application fonctionnelle permettant d'organiser des murder parties de 4 a 12 joueurs avec une experience utilisateur immersive et intuitive.",
-    gallery: [
-      "/images/projets/app-murder party/menueprincipal.png",
-      "/images/projets/app-murder party/chat.png",
-      "/images/projets/app-murder party/classement.png",
-      "/images/projets/app-murder party/connexion.png",
-    ],
+      "Des murder parties de 4 à 12 joueurs, avec une ambiance visuelle sombre et immersive fidèle à l'univers du jeu.",
+    technologies: ["Next.js", "TailwindCSS"],
+    link: "https://app-halloween-nf61.vercel.app",
+    linkLabel: "Visiter le site",
+    ...visuals("murder-party", 4),
   },
   {
     id: 2,
+    slug: "rackoon-streaming",
     title: "Rackoon Streaming",
-    description:
-      "Plateforme de streaming video pensee comme une alternative moderne aux services existants. L'application propose un catalogue de contenus organise par categories, genres et popularite, avec un moteur de recherche avance et des filtres personnalisables. Le lecteur video integre offre une lecture fluide avec controle de qualite adaptatif. L'interface s'inspire des meilleures pratiques UX des plateformes de streaming actuelles, avec un systeme de recommandations, des listes de favoris et un historique de visionnage pour chaque utilisateur. Le design responsive assure une experience optimale sur tous les appareils, du smartphone au grand ecran.",
-    image: "/images/projets/vektroid/vektroid-accueil.png",
-    importance: 3,
-    technologies: ["React.js", "TailwindCSS"],
+    categories: ["apps"],
     client: "Projet personnel",
     year: "2024",
-    link: null,
-    linkLabel: "Voir sur GitHub",
+    accent: "#d946ef",
+    excerpt: "Une plateforme de streaming pensée comme les grands, en plus malin.",
+    description:
+      "Plateforme de streaming vidéo pensée comme une alternative moderne aux services existants. Catalogue organisé par catégories, genres et popularité, moteur de recherche avancé, filtres personnalisables, lecteur intégré avec qualité adaptative, recommandations, favoris et historique de visionnage pour chaque utilisateur.",
     challenge:
-      "Creer une interface de streaming intuitive et performante avec un systeme de navigation fluide entre les contenus et un lecteur video optimise.",
+      "Créer une interface de streaming intuitive et performante, avec une navigation fluide entre les contenus et un lecteur vidéo optimisé.",
     solution:
-      "Architecture React.js modulaire avec un systeme de composants reutilisables, un lecteur video custom et une interface responsive optimisee pour tous les ecrans.",
+      "Architecture React.js modulaire, composants réutilisables, lecteur vidéo sur mesure et interface responsive pour tous les écrans.",
     results:
-      "Plateforme de streaming complete avec catalogue, recherche, filtres et lecture video fluide sur desktop et mobile.",
-    gallery: ["/images/projets/vektroid/vektroid-accueil.png"],
+      "Une plateforme complète — catalogue, recherche, filtres et lecture fluide — sur desktop comme sur mobile.",
+    technologies: ["React.js", "TailwindCSS"],
+    link: null,
+    linkLabel: null,
+    ...visuals("rackoon-streaming", 1),
   },
   {
     id: 3,
-    title: "Reservation de bureaux CCI",
-    description:
-      "Application professionnelle de reservation de bureaux developpee pour la Chambre de Commerce et d'Industrie France en Republique Tcheque. Integree directement dans Microsoft Teams sous forme d'onglet, elle permet aux employes de visualiser en temps reel la disponibilite des espaces de travail (bureaux individuels, salles de reunion, espaces partages), de reserver un creneau en quelques clics et de gerer leurs reservations existantes. Un panneau d'administration permet aux gestionnaires de configurer les espaces, de definir les regles de reservation et de consulter les statistiques d'occupation. Le systeme gere les conflits de reservation et envoie des confirmations automatiques.",
-    image: "/images/projets/Application-teams/accueillereservbureau.png",
-    importance: 4,
-    technologies: ["React.js", "CSS", "HTML", "Microsoft Teams"],
-    client: "CCI France en Republique Tcheque",
+    slug: "cci-reservation-bureaux",
+    title: "Réservation de bureaux CCI",
+    categories: ["apps"],
+    client: "CCI France en République tchèque",
     year: "2024",
-    link: null,
-    linkLabel: "Voir sur GitHub",
+    pinned: true,
+    accent: "#6d5dfc",
+    excerpt: "Réserver son bureau sans quitter Microsoft Teams.",
+    description:
+      "Application professionnelle de réservation de bureaux développée pour la Chambre de Commerce et d'Industrie France en République tchèque. Intégrée directement dans Microsoft Teams sous forme d'onglet, elle permet aux employés de visualiser en temps réel la disponibilité des espaces (bureaux, salles de réunion, espaces partagés), de réserver un créneau en quelques clics et de gérer leurs réservations. Un panneau d'administration permet de configurer les espaces et de suivre l'occupation.",
     challenge:
-      "Integrer un systeme de reservation complet dans l'ecosysteme Microsoft Teams tout en assurant une synchronisation en temps reel des disponibilites des bureaux.",
+      "Intégrer un système de réservation complet dans l'écosystème Microsoft Teams tout en synchronisant les disponibilités en temps réel.",
     solution:
-      "Developpement d'une application React.js deployee comme onglet Teams avec une API de synchronisation pour les disponibilites et un calendrier interactif.",
+      "Application React.js déployée comme onglet Teams, avec une API de synchronisation des disponibilités et un plan d'étage interactif.",
     results:
-      "Systeme de reservation operationnel utilise quotidiennement par les employes de la CCI, ameliorant significativement la gestion des espaces de travail.",
-    gallery: [
-      "/images/projets/Application-teams/accueillereservbureau.png",
-      "/images/projets/Application-teams/menuereservation.png",
-      "/images/projets/Application-teams/reservationsalle.png",
-    ],
+      "Un outil utilisé au quotidien par les équipes de la CCI, qui a nettement simplifié la gestion des espaces de travail.",
+    technologies: ["React.js", "Microsoft Teams", "HTML", "CSS"],
+    link: null,
+    linkLabel: null,
+    ...visuals("cci-reservation-bureaux", 3),
   },
   {
     id: 4,
-    title: "Apprentissage de Langues IA",
-    description:
-      "Application innovante d'apprentissage de langues etrangeres propulsee par l'intelligence artificielle Gemini de Google. L'outil analyse le niveau de l'utilisateur puis genere des exercices sur mesure : traduction, comprehension orale, grammaire, vocabulaire et expression ecrite. L'IA corrige chaque reponse en temps reel avec des explications detaillees et des suggestions d'amelioration. Le systeme adapte progressivement la difficulte en fonction des performances, en insistant sur les points faibles identifies. L'utilisateur peut choisir parmi plusieurs langues et suivre sa progression via un tableau de bord personnalise avec des statistiques detaillees sur ses performances.",
-    image: "/images/projets/conge-chartrettes/image-mon-compte.png",
-    importance: 3,
-    technologies: ["Next.js", "API Gemini", "TailwindCSS"],
+    slug: "lingua-gem",
+    title: "Apprentissage de langues IA",
+    categories: ["apps", "ia"],
     client: "Projet personnel",
     year: "2024",
-    link: null,
-    linkLabel: "Voir sur GitHub",
+    accent: "#4f46e5",
+    excerpt: "Un tuteur de langues propulsé par Gemini, qui s'adapte à vous.",
+    description:
+      "Application d'apprentissage des langues propulsée par l'IA Gemini de Google. L'outil évalue le niveau de l'utilisateur puis génère des exercices sur mesure : traduction, grammaire, vocabulaire, expression écrite. Chaque réponse est corrigée en temps réel avec des explications détaillées, et la difficulté s'adapte progressivement aux points faibles identifiés.",
     challenge:
-      "Exploiter l'API Gemini pour generer des exercices de langue pertinents et personnalises, avec une correction intelligente et un suivi de progression.",
+      "Exploiter l'API Gemini pour générer des exercices pertinents et personnalisés, avec une correction intelligente et un suivi de progression.",
     solution:
-      "Integration de l'API Gemini dans une application Next.js avec un systeme de prompts optimises pour generer des exercices adaptes et fournir des corrections detaillees.",
+      "Intégration de Gemini dans une application Next.js avec des prompts optimisés pour générer les exercices et détailler les corrections.",
     results:
-      "Application d'apprentissage fonctionnelle avec generation d'exercices IA, correction automatique et adaptation du niveau en temps reel.",
-    gallery: ["/images/projets/conge-chartrettes/image-mon-compte.png"],
+      "Génération d'exercices par IA, correction automatique et adaptation du niveau en temps réel, en plusieurs langues.",
+    technologies: ["Next.js", "API Gemini", "TailwindCSS"],
+    link: "https://lingua-gem.vercel.app/",
+    linkLabel: "Visiter le site",
+    ...visuals("lingua-gem", 3),
   },
   {
     id: 5,
-    title: "Conge Chartrettes",
-    description:
-      "Projet complet melant hardware et software realise pour la mairie de Chartrettes. L'application web Next.js permet aux agents municipaux de poser leurs conges, de consulter leur solde de jours restants et de visualiser le planning de l'equipe sur un calendrier partage. Les responsables valident ou refusent les demandes depuis un back-office dedie avec notifications automatiques. En parallele, un dispositif physique de badgeage base sur un microcontroleur ESP32 programme en C++ permet aux agents de pointer a leur arrivee et leur depart. Le boitier du badge a ete entierement modelise en 3D sur Fusion 360 puis imprime. Les donnees de badgeage sont synchronisees avec l'application web pour un suivi complet des presences et des absences.",
-    image: "/images/projets/conge-chartrettes/accueil-reservationmairie.png",
-    importance: 4,
-    technologies: ["Next.js", "TailwindCSS", "C++", "ESP32", "Fusion 360"],
+    slug: "conges-chartrettes",
+    title: "Congés Chartrettes",
+    categories: ["apps"],
     client: "Mairie de Chartrettes",
     year: "2024",
-    link: null,
-    linkLabel: "Voir sur GitHub",
+    pinned: true,
+    accent: "#2563eb",
+    excerpt: "Application de congés + badgeuse IoT conçue de A à Z pour une mairie.",
+    description:
+      "Projet complet mêlant hardware et software pour la mairie de Chartrettes. L'application web Next.js permet aux agents de poser leurs congés, de consulter leur solde et de visualiser le planning de l'équipe ; les responsables valident les demandes depuis un back-office dédié. En parallèle, une badgeuse basée sur un ESP32 programmé en C++ — boîtier modélisé sur Fusion 360 puis imprimé en 3D — synchronise les présences avec l'application.",
     challenge:
-      "Concevoir un systeme hybride combinant application web et dispositif IoT pour digitaliser la gestion des conges d'une collectivite locale avec des contraintes de fiabilite et de simplicite d'utilisation.",
+      "Digitaliser la gestion des congés d'une collectivité avec un système hybride web + IoT, fiable et simple à utiliser.",
     solution:
-      "Developpement d'une application Next.js pour la partie web, programmation en C++ d'un ESP32 pour le badgeage et conception 3D du boitier sur Fusion 360 pour l'installation physique.",
+      "Application Next.js pour la partie web, ESP32 programmé en C++ pour le badgeage et boîtier conçu sur Fusion 360 pour l'installation physique.",
     results:
-      "Systeme de gestion des conges entierement operationnel, utilise par les agents de la mairie avec un suivi en temps reel des presences et des conges.",
-    gallery: [
-      "/images/projets/conge-chartrettes/accueil-reservationmairie.png",
-      "/images/projets/conge-chartrettes/image-mon-compte.png",
-      "/images/projets/conge-chartrettes/imagemesreservation.png",
-    ],
+      "Un système opérationnel utilisé par les agents de la mairie, avec un suivi en temps réel des présences et des congés.",
+    technologies: ["Next.js", "TailwindCSS", "C++", "ESP32", "Fusion 360"],
+    link: null,
+    linkLabel: null,
+    ...visuals("conges-chartrettes", 3),
   },
   {
     id: 6,
-    title: "PokemonBattleDetector",
-    description:
-      "Extension Twitch originale qui utilise la vision par ordinateur en Python pour analyser le flux video d'un stream en direct et detecter automatiquement quand un combat Pokemon demarre a l'ecran. Lorsqu'un combat est identifie, l'extension capture les informations visibles (Pokemon en jeu, barres de vie) et les affiche aux spectateurs via un overlay web integre au stream. Le projet combine un backend Python pour l'analyse d'images avec un frontend HTML/CSS/JS pour l'interface de l'extension Twitch, le tout communiquant en temps reel. L'algorithme a ete entraine pour reconnaitre les ecrans de combat specifiques aux differentes generations de jeux Pokemon.",
-    image: "/images/projets/IA-recconaissance-objet/reconaissance-telephone.png",
-    importance: 1,
-    technologies: ["Python", "HTML", "CSS", "JS", "Extension Twitch"],
+    slug: "pokemon-battle-detector",
+    title: "PokémonBattleDetector",
+    categories: ["ia"],
     client: "Projet personnel",
     year: "2023",
-    link: null,
-    linkLabel: "Voir sur GitHub",
+    accent: "#06b6d4",
+    excerpt: "Une extension Twitch qui repère les combats Pokémon en direct.",
+    description:
+      "Extension Twitch qui utilise la vision par ordinateur pour analyser le flux d'un stream en direct et détecter automatiquement le début d'un combat Pokémon. Les informations visibles (Pokémon en jeu, barres de vie) sont alors affichées aux spectateurs via un overlay intégré au stream. Backend Python pour l'analyse d'images, frontend HTML/CSS/JS pour l'extension.",
     challenge:
-      "Detecter en temps reel les sequences de combat Pokemon dans un flux video Twitch et afficher les informations pertinentes aux spectateurs.",
+      "Détecter en temps réel les séquences de combat dans un flux vidéo Twitch et afficher les informations utiles aux spectateurs.",
     solution:
-      "Algorithme de detection d'image en Python couple a une extension Twitch avec une interface web pour l'affichage des resultats en overlay sur le stream.",
+      "Algorithme de détection d'image en Python couplé à une extension Twitch qui affiche les résultats en overlay.",
     results:
-      "Extension fonctionnelle capable de detecter les combats Pokemon en temps reel avec un affichage overlay pour les viewers Twitch.",
-    gallery: [
-      "/images/projets/IA-recconaissance-objet/reconaissance-telephone.png",
-    ],
+      "Une extension capable de reconnaître les écrans de combat de plusieurs générations de jeux, en direct.",
+    technologies: ["Python", "Extension Twitch", "HTML", "CSS", "JS"],
+    link: null,
+    linkLabel: null,
+    ...visuals("pokemon-battle-detector", 1),
   },
   {
     id: 7,
-    title: "IA Detection d'objets",
-    description:
-      "Programme d'intelligence artificielle capable de detecter et d'identifier des objets en temps reel dans un flux video. Le systeme utilise le modele de deep learning YOLOv3 (You Only Look Once) combine avec la librairie OpenCV pour traiter les images provenant d'une webcam ou d'un fichier video. Il peut reconnaitre plus de 80 categories d'objets differents (personnes, vehicules, animaux, objets du quotidien) et les encadrer a l'ecran avec leur label et leur score de confiance. Le programme est optimise pour fonctionner en temps reel sur du materiel grand public, avec un affichage fluide des boites de detection et la possibilite de filtrer les objets par categorie.",
-    image: "/images/projets/IA-recconaissance-objet/reconaissance-telephone.png",
-    importance: 1,
-    technologies: ["Python", "YOLOv3", "OpenCV"],
+    slug: "ia-detection-objets",
+    title: "IA Détection d'objets",
+    categories: ["ia"],
     client: "Projet personnel",
     year: "2023",
-    link: null,
-    linkLabel: "Voir sur GitHub",
+    accent: "#22d3ee",
+    excerpt: "Plus de 80 catégories d'objets reconnues en temps réel à la webcam.",
+    description:
+      "Programme d'intelligence artificielle qui détecte et identifie des objets en temps réel dans un flux vidéo. Le système s'appuie sur YOLOv3 et OpenCV pour traiter les images d'une webcam ou d'un fichier vidéo, reconnaît plus de 80 catégories (personnes, véhicules, animaux, objets du quotidien) et les encadre à l'écran avec leur label et leur score de confiance.",
     challenge:
-      "Implementer un systeme de detection d'objets performant en temps reel avec une precision suffisante pour identifier plusieurs categories d'objets simultanement.",
+      "Détecter plusieurs catégories d'objets simultanément, en temps réel, avec une précision suffisante sur du matériel grand public.",
     solution:
-      "Utilisation du modele pre-entraine YOLOv3 avec OpenCV pour le traitement video en temps reel, optimise pour fonctionner sur du materiel grand public.",
+      "Modèle pré-entraîné YOLOv3 et traitement vidéo OpenCV optimisés pour tourner en direct.",
     results:
-      "Systeme de detection fonctionnel capable d'identifier plus de 80 categories d'objets en temps reel avec un framerate acceptable.",
-    gallery: [
-      "/images/projets/IA-recconaissance-objet/reconaissance-telephone.png",
-      "/images/projets/IA-recconaissance-objet/reconaissance-fourchettte.png",
-      "/images/projets/IA-recconaissance-objet/reconnaisance-gateau.png",
-    ],
+      "Plus de 80 catégories d'objets identifiées en temps réel avec un framerate confortable.",
+    technologies: ["Python", "YOLOv3", "OpenCV"],
+    link: null,
+    linkLabel: null,
+    ...visuals("ia-detection-objets", 3),
   },
   {
     id: 8,
+    slug: "ia-langue-des-signes",
     title: "IA Langue des signes",
-    description:
-      "Application d'accessibilite utilisant l'intelligence artificielle pour reconnaitre la langue des signes en temps reel. Le systeme capture le flux video de la webcam, detecte les mains et les gestes de l'utilisateur grace a un modele YOLO entraine specifiquement sur un dataset de la langue des signes, puis traduit chaque signe en lettre ou mot affiche a l'ecran. L'objectif est de faciliter la communication entre les personnes sourdes ou malentendantes et celles qui ne connaissent pas la langue des signes. OpenCV assure le traitement video et l'affichage des resultats en surimposition. Le modele a ete entraine sur un dataset personnalise de gestes pour maximiser la precision de la reconnaissance.",
-    image: "/images/projets/IA-reconnaissancelanguedessignes/montrelettre.png",
-    importance: 1,
-    technologies: ["Python", "YOLO", "OpenCV"],
+    categories: ["ia"],
     client: "Projet personnel",
     year: "2023",
-    link: null,
-    linkLabel: "Voir sur GitHub",
+    accent: "#ec4899",
+    excerpt: "Traduire la langue des signes en texte, lettre après lettre.",
+    description:
+      "Application d'accessibilité qui reconnaît la langue des signes en temps réel. Le système capte le flux de la webcam, détecte les mains grâce à un modèle YOLO entraîné sur un dataset dédié, puis traduit chaque signe en lettre affichée à l'écran. Objectif : faciliter la communication entre personnes sourdes ou malentendantes et celles qui ne pratiquent pas la langue des signes.",
     challenge:
-      "Reconnaitre les gestes de la langue des signes en temps reel avec une precision suffisante pour permettre une communication fluide.",
+      "Reconnaître les gestes en temps réel avec une précision suffisante pour permettre une communication fluide.",
     solution:
-      "Entrainement d'un modele YOLO personnalise sur un dataset de gestes de la langue des signes, couple a OpenCV pour le traitement video en temps reel.",
+      "Entraînement d'un modèle YOLO personnalisé sur un dataset de gestes, couplé à OpenCV pour le traitement vidéo.",
     results:
-      "Application fonctionnelle capable de reconnaitre les lettres et gestes courants de la langue des signes en temps reel via webcam.",
-    gallery: [
-      "/images/projets/IA-reconnaissancelanguedessignes/montrelettre.png",
-      "/images/projets/IA-reconnaissancelanguedessignes/ecritlettre.png",
-    ],
+      "Reconnaissance des lettres et gestes courants en temps réel via webcam, avec un mode d'écriture de texte.",
+    technologies: ["Python", "YOLO", "OpenCV"],
+    link: null,
+    linkLabel: null,
+    ...visuals("ia-langue-des-signes", 2),
   },
   {
     id: 9,
+    slug: "mousequetaire-shop",
     title: "MousequetaireShop",
-    description:
-      "Boutique en ligne e-commerce complete construite sur l'ecosysteme PrestaShop avec des modules personnalises developpes en Laravel/PHP. Le site propose un catalogue de produits riche avec fiches detaillees, images haute qualite et variantes de produits. Un systeme de filtres et de recherche permet de trouver rapidement le bon produit. Le panier d'achat intuitif et le tunnel de paiement securise assurent une experience d'achat fluide. Le back-office permet de gerer les produits, les stocks, les commandes et les clients. Des fonctionnalites avancees comme les codes promo, les avis clients et le suivi de livraison ont ete integrees pour offrir une experience e-commerce professionnelle.",
-    image: "/images/projets/pizzeria/accueil pizzeria.png",
-    importance: 3,
-    technologies: ["Laravel", "PrestaShop", "PHP"],
+    categories: ["ecommerce"],
     client: "Projet personnel",
     year: "2023",
-    link: null,
-    linkLabel: "Voir sur GitHub",
+    accent: "#38bdf8",
+    excerpt: "Une boutique en ligne complète, du catalogue au back-office.",
+    description:
+      "Boutique e-commerce construite sur PrestaShop avec des modules personnalisés en Laravel/PHP. Catalogue riche avec fiches détaillées et variantes, filtres et recherche, panier intuitif et tunnel de paiement sécurisé. Le back-office permet de gérer produits, stocks, commandes et clients, avec codes promo, avis clients et suivi de livraison.",
     challenge:
-      "Creer une boutique en ligne complete et performante en combinant la puissance de Laravel avec les fonctionnalites e-commerce de PrestaShop.",
+      "Créer une boutique complète et performante en combinant Laravel et les fonctionnalités e-commerce de PrestaShop.",
     solution:
-      "Architecture hybride utilisant PrestaShop pour la gestion du catalogue et du panier, avec des modules personnalises developpes en Laravel/PHP pour les fonctionnalites specifiques.",
+      "Architecture hybride : PrestaShop pour le catalogue et le panier, modules Laravel/PHP sur mesure pour les besoins spécifiques.",
     results:
-      "Boutique en ligne fonctionnelle avec catalogue produits, gestion du panier, paiement securise et interface d'administration complete.",
-    gallery: ["/images/projets/pizzeria/accueil pizzeria.png"],
+      "Catalogue, panier, paiement sécurisé et tableau de bord d'administration complet.",
+    technologies: ["Laravel", "PrestaShop", "PHP"],
+    link: null,
+    linkLabel: null,
+    ...visuals("mousequetaire-shop", 3),
   },
   {
     id: 10,
-    title: "Pizzeria Chartrettes",
-    description:
-      "Site vitrine professionnel realise pour la pizzeria de Chartrettes, conçu pour attirer de nouveaux clients via le referencement local. Le site presente l'ensemble du menu avec les prix, les ingredients et les photos des plats, ainsi que les horaires d'ouverture, l'adresse avec integration Google Maps et un numero de telephone en click-to-call. Un formulaire de commande en ligne permet aux clients de passer commande pour la livraison ou le retrait sur place. L'optimisation SEO cible les recherches locales (pizzeria Chartrettes, pizza livraison 77) pour maximiser la visibilite sur Google. Le design responsive s'adapte parfaitement aux smartphones, support principal de recherche des clients locaux.",
-    image: "/images/projets/pizzeria/accueil pizzeria.png",
-    importance: 4,
-    technologies: ["HTML", "CSS", "JavaScript", "SEO"],
+    slug: "pizzeria-dolce-vita",
+    title: "Pizzeria La Dolce Vita",
+    categories: ["web"],
     client: "Pizzeria de Chartrettes",
     year: "2023",
-    link: null,
-    linkLabel: "Visiter le site",
+    pinned: true,
+    accent: "#dc2626",
+    excerpt: "Un site vitrine gourmand, pensé pour le référencement local.",
+    description:
+      "Site vitrine réalisé pour la pizzeria de Chartrettes, conçu pour attirer de nouveaux clients grâce au référencement local. Menu complet avec prix et photos, horaires, adresse avec Google Maps et numéro en click-to-call. Le référencement cible les recherches locales (pizzeria Chartrettes, pizza livraison 77) et le design est pensé d'abord pour le smartphone.",
     challenge:
-      "Creer un site vitrine attractif et optimise pour le referencement local afin d'augmenter la visibilite de la pizzeria et faciliter les commandes en ligne.",
+      "Créer un site attractif et bien référencé localement pour augmenter la visibilité de la pizzeria et faciliter les commandes.",
     solution:
-      "Developpement d'un site responsive avec optimisation SEO locale, integration de Google Maps, menu interactif et formulaire de commande en ligne.",
+      "Site responsive optimisé SEO local, intégration Google Maps, menu interactif et appel en un clic.",
     results:
-      "Amelioration significative de la visibilite en ligne de la pizzeria avec un bon positionnement sur les recherches locales et une augmentation des commandes.",
-    gallery: [
-      "/images/projets/pizzeria/accueil pizzeria.png",
-      "/images/projets/pizzeria/infopizza.png",
-      "/images/projets/pizzeria/menue-pizza.png",
-    ],
+      "Une visibilité en ligne nettement améliorée et un bon positionnement sur les recherches locales.",
+    technologies: ["HTML", "CSS", "JavaScript", "SEO"],
+    link: "https://ladolcevita-pizza.fr/",
+    linkLabel: "Visiter le site",
+    ...visuals("pizzeria-dolce-vita", 3),
   },
   {
     id: 11,
-    title: "Reservation Salles Chartrettes",
-    description:
-      "Application web de reservation de salles municipales developpee pour la mairie de Chartrettes. Les habitants peuvent consulter les salles disponibles (salle des fetes, salle de reunion, gymnase), visualiser les creneaux libres sur un calendrier interactif et soumettre une demande de reservation en ligne. Cote administration, le personnel municipal dispose d'un tableau de bord pour valider ou refuser les demandes, gerer les tarifs selon le type de salle et d'evenement, et consulter l'historique des reservations. Le systeme envoie des notifications automatiques a chaque etape du processus (confirmation, rappel, annulation).",
-    image: "/images/projets/reservation-chartrettes/ecran-acueille.png",
-    importance: 3,
-    technologies: ["Next.js", "TailwindCSS"],
+    slug: "reservation-salles-chartrettes",
+    title: "Réservation de salles Chartrettes",
+    categories: ["apps"],
     client: "Mairie de Chartrettes",
     year: "2024",
-    link: null,
-    linkLabel: "Voir sur GitHub",
+    accent: "#3b82f6",
+    excerpt: "Réserver une salle municipale en ligne, en quelques clics.",
+    description:
+      "Application de réservation des salles municipales de Chartrettes. Les associations consultent les bâtiments et salles disponibles (complexe sportif, espace culturel…), visualisent les créneaux libres sur un calendrier interactif et soumettent leur demande en ligne. Côté mairie, un tableau de bord permet de valider les demandes, de gérer les tarifs et de consulter l'historique, avec des notifications automatiques à chaque étape.",
     challenge:
-      "Digitaliser le processus de reservation des salles municipales avec un systeme simple pour les administres et un outil de gestion efficace pour l'administration.",
+      "Digitaliser les réservations avec un parcours simple pour les administrés et un outil de gestion efficace pour la mairie.",
     solution:
-      "Application Next.js avec calendrier interactif, systeme de roles (administre/administrateur) et workflow de validation des demandes de reservation.",
+      "Application Next.js avec calendrier interactif, gestion des rôles et workflow de validation des demandes.",
     results:
-      "Systeme de reservation en ligne operationnel, simplifiant le processus pour les habitants et l'equipe municipale de Chartrettes.",
-    gallery: [
-      "/images/projets/reservation-chartrettes/ecran-acueille.png",
-      "/images/projets/reservation-chartrettes/ecrancalendrier.png",
-      "/images/projets/reservation-chartrettes/selectionbatiment.png",
-      "/images/projets/reservation-chartrettes/selectionsalle.png",
-    ],
+      "Un processus de réservation simplifié pour les habitants comme pour l'équipe municipale.",
+    technologies: ["Next.js", "TailwindCSS"],
+    link: null,
+    linkLabel: null,
+    ...visuals("reservation-salles-chartrettes", 4),
   },
   {
     id: 12,
-    title: "Yodea - Maison d'edition",
-    description:
-      "Site vitrine elegant conçu pour la maison d'edition Yodea. Le site met en valeur le catalogue complet des ouvrages publies avec pour chaque livre une fiche detaillee comprenant resume, extrait, informations sur l'auteur et prix. Une section dediee presente les auteurs de la maison avec leur biographie et leur bibliographie complete. La page d'actualites relaie les evenements litteraires, seances de dedicaces et nouvelles parutions. Le design a ete pense pour refleter l'identite editoriale de Yodea : soigne, sobre et centre sur le contenu textuel, avec une typographie choisie pour le confort de lecture.",
-    image: "/images/projets/sitevitrine-yodea/ecran-accueil.png",
-    importance: 1,
-    technologies: ["HTML", "CSS", "JavaScript"],
-    client: "Yodea",
+    slug: "yodea",
+    title: "Yodéa — Maison d'édition",
+    categories: ["web"],
+    client: "Éditions Yodéa",
     year: "2023",
-    link: null,
-    linkLabel: "Visiter le site",
+    accent: "#f97316",
+    excerpt: "Un catalogue d'ouvrages mis en valeur avec soin et sobriété.",
+    description:
+      "Site vitrine conçu pour la maison d'édition Yodéa. Le catalogue complet des ouvrages est mis en valeur, avec pour chaque livre une fiche détaillée (résumé, auteur, prix). Romans, bandes dessinées, livres jeunesse et méthodes d'hébreu sont organisés par collection, avec un design soigné, sobre et centré sur le contenu.",
     challenge:
-      "Concevoir un site vitrine qui reflete l'elegance et le serieux d'une maison d'edition tout en mettant en valeur son catalogue et ses auteurs.",
+      "Refléter l'élégance d'une maison d'édition tout en rendant son catalogue facile à explorer.",
     solution:
-      "Design epure et typographie soignee avec une navigation intuitive pour explorer le catalogue, les fiches auteurs et les actualites de la maison d'edition.",
+      "Design épuré, typographie soignée et navigation par collections pour le catalogue et les fiches ouvrages.",
     results:
-      "Site vitrine professionnel renforçant la presence en ligne de Yodea et facilitant la decouverte de son catalogue par les lecteurs et les libraires.",
-    gallery: [
-      "/images/projets/sitevitrine-yodea/ecran-accueil.png",
-      "/images/projets/sitevitrine-yodea/livre1.png",
-      "/images/projets/sitevitrine-yodea/livre2.png",
-      "/images/projets/sitevitrine-yodea/livre3.png",
-    ],
+      "Une présence en ligne renforcée qui facilite la découverte du catalogue par les lecteurs et les libraires.",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    link: "https://yodea.com/",
+    linkLabel: "Visiter le site",
+    ...visuals("yodea", 4),
   },
   {
     id: 13,
-    title: "Wizzelek - Experience Vektroid",
-    description:
-      "Experience web artistique et immersive qui plonge l'utilisateur dans un univers 3D interactif inspire de l'esthetique vaporwave de Vektroid. Grace a Three.js, le site propose une navigation libre dans un espace tridimensionnel peuple de formes geometriques, de textures retro et d'effets visuels reactifs aux actions de l'utilisateur. L'ambiance sonore interactive accompagne l'exploration et change selon la zone visitee. Le projet explore les possibilites creatives du web 3D en fusionnant art numerique, musique electronique et interaction utilisateur dans une experience sensorielle unique qui repousse les limites du web traditionnel.",
-    image: "/images/projets/vektroid/vektroid-accueil.png",
-    importance: 4,
-    technologies: ["HTML", "CSS", "Three.js"],
+    slug: "vektroid",
+    title: "Expérience Vektroid",
+    categories: ["creatif", "web"],
     client: "Projet artistique",
     year: "2023",
-    link: null,
-    linkLabel: "Visiter le site",
+    accent: "#ff3cac",
+    excerpt: "Une plongée 3D vaporwave, entre art numérique et musique.",
+    description:
+      "Expérience web artistique et immersive inspirée de l'esthétique vaporwave de Vektroid. Grâce à Three.js, le site propose une navigation libre dans un univers 3D peuplé de formes géométriques, de textures rétro et d'effets visuels réactifs, accompagnée d'une ambiance sonore interactive.",
     challenge:
-      "Creer une experience web 3D immersive et performante qui capture l'esthetique unique de Vektroid tout en restant accessible sur differents navigateurs et appareils.",
+      "Créer une expérience 3D immersive et performante qui capture une esthétique unique tout en restant accessible sur différents navigateurs.",
     solution:
-      "Utilisation de Three.js pour le rendu 3D temps reel avec des shaders personnalises, des animations procedurale et une interaction utilisateur intuitive dans l'espace 3D.",
+      "Rendu 3D temps réel avec Three.js, shaders personnalisés, animations procédurales et interactions intuitives.",
     results:
-      "Experience artistique immersive avec un univers 3D navigable, des effets visuels reactifs et une ambiance sonore interactive.",
-    gallery: [
-      "/images/projets/vektroid/vektroid-accueil.png",
-      "/images/projets/vektroid/lecteurvektroid.png",
-      "/images/projets/vektroid/creationdesign.png",
-    ],
+      "Un univers 3D navigable, des effets visuels réactifs et une ambiance sonore interactive.",
+    technologies: ["Three.js", "HTML", "CSS"],
+    link: "https://projet-vektroide.vercel.app/",
+    linkLabel: "Visiter le site",
+    ...visuals("vektroid", 3),
   },
   {
     id: 14,
-    title: "Site Marchand Amazon Disjoncteurs",
-    description:
-      "Site e-commerce specialise pour un vendeur professionnel Amazon de disjoncteurs et materiel electrique. Le site propose des fiches produits techniques detaillees avec specifications, normes de conformite, schemas de branchement et guides de choix pour aider les clients (electriciens, particuliers) a trouver le bon disjoncteur. Des tableaux comparatifs permettent de comparer les caracteristiques entre modeles. Le design est pense pour la conversion avec des elements de rassurance (garantie, livraison rapide, service client) et un parcours d'achat simplifie redirigeant vers la page Amazon du produit.",
-    image: "/images/projets/sitevitrine-yodea/ecran-accueil.png",
-    importance: 1,
-    technologies: ["HTML", "CSS", "JavaScript"],
-    client: "Marchand Amazon",
+    slug: "wizzelek",
+    title: "Wizzelek — Disjoncteurs",
+    categories: ["ecommerce", "web"],
+    client: "Vendeur Amazon",
     year: "2023",
-    link: null,
-    linkLabel: "Visiter le site",
+    accent: "#f59e0b",
+    excerpt: "Des fiches produits techniques qui donnent envie d'acheter.",
+    description:
+      "Site e-commerce pour un vendeur professionnel Amazon de disjoncteurs et de matériel électrique. Fiches produits techniques (spécifications, normes, schémas de branchement), guides de choix et tableaux comparatifs aident électriciens et particuliers à trouver le bon modèle. Le design est pensé pour la conversion, avec des éléments de réassurance et un parcours d'achat qui redirige vers Amazon.",
     challenge:
-      "Creer une page produit convaincante pour des articles techniques, en rendant les specifications accessibles tout en maximisant le taux de conversion.",
+      "Rendre des spécifications techniques accessibles tout en maximisant le taux de conversion.",
     solution:
-      "Design centre sur la conversion avec des fiches produits detaillees, des comparatifs visuels, des guides d'achat et des elements de rassurance pour les acheteurs.",
+      "Fiches produits détaillées, comparatifs visuels, guides d'achat et éléments de réassurance.",
     results:
-      "Page produit optimisee avec une presentation claire des specifications techniques et un parcours d'achat simplifie pour les clients Amazon.",
-    gallery: ["/images/projets/sitevitrine-yodea/ecran-accueil.png"],
+      "Une présentation claire des produits et un parcours d'achat simplifié vers Amazon.",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    link: null,
+    linkLabel: null,
+    ...visuals("wizzelek", 1),
   },
   {
     id: 15,
+    slug: "site-mousequetaire",
     title: "Site Mousequetaire",
-    description:
-      "Site portfolio officiel de l'agence Mousequetaire, conçu pour etre lui-meme une demonstration du savoir-faire de l'equipe. Le site utilise des animations GSAP sophistiquees pour les transitions de pages, les effets de parallaxe au scroll et les micro-interactions. Il presente les services de l'agence (developpement web, design, IA), le portfolio complet des realisations avec modales interactives, les profils de l'equipe et un formulaire de contact. Le design sombre et moderne avec des accents bleus cree une identite visuelle forte et memorable. L'optimisation des performances garantit des temps de chargement rapides malgre la richesse des animations.",
-    image: "/images/projets/vektroid/vektroid-accueil.png",
-    importance: 4,
-    technologies: ["Next.js", "TailwindCSS", "GSAP"],
+    categories: ["web", "creatif"],
     client: "Mousequetaire",
-    year: "2024",
-    link: null,
-    linkLabel: "Visiter le site",
+    year: "2025",
+    accent: "#38bdf8",
+    excerpt: "Notre propre vitrine — celle que vous êtes en train de visiter.",
+    description:
+      "Le site officiel de l'agence, pensé comme une démonstration de notre savoir-faire : animations GSAP pour les transitions et le scroll, micro-interactions, présentation des services, grille tarifaire, équipe, portfolio façon Instagram et formulaire de contact. Un design sombre aux accents bleus pour une identité forte et mémorable.",
     challenge:
-      "Concevoir un site d'agence qui soit lui-meme une vitrine du savoir-faire de Mousequetaire, avec des animations fluides et un design qui se demarque.",
+      "Concevoir un site d'agence qui soit lui-même une vitrine, avec des animations fluides sans sacrifier les performances.",
     solution:
-      "Developpement Next.js avec animations GSAP pour les transitions et les effets de scroll, design systeme personnalise avec TailwindCSS et optimisation des performances.",
+      "Next.js, animations GSAP, design system sur mesure avec TailwindCSS et optimisation des images.",
     results:
-      "Site d'agence moderne et performant servant de vitrine aux competences de Mousequetaire, avec des animations fluides et une experience utilisateur memorisable.",
-    gallery: ["/images/projets/vektroid/vektroid-accueil.png"],
+      "Un site moderne et rapide qui présente nos compétences… en les utilisant.",
+    technologies: ["Next.js", "TailwindCSS", "GSAP"],
+    link: "https://mousequetaire.com",
+    linkLabel: "Visiter le site",
+    ...visuals("site-mousequetaire", 4),
   },
 ];
+
+// Ordre d'affichage façon Instagram : épinglés d'abord, puis du plus récent
+// au plus ancien.
+export const portfolioItems = [...projects].sort(
+  (a, b) =>
+    (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0) ||
+    Number(b.year) - Number(a.year) ||
+    b.id - a.id
+);
+
+export const getProject = (id) =>
+  portfolioItems.find((item) => item.id === Number(id)) || null;

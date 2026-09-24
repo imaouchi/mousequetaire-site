@@ -22,7 +22,7 @@
 - [Réservation de bureaux CCI](https://mousequetaire.com/portfolio/3): Application Microsoft Teams pour la CCI France en République Tchèque - réservation de bureaux en temps réel.
 - [Congé Chartrettes](https://mousequetaire.com/portfolio/5): Application web + boîtier de badgeage IoT (ESP32) pour la mairie de Chartrettes - gestion des congés et présences.
 - [Apprentissage de Langues IA](https://mousequetaire.com/portfolio/4): Application d'apprentissage de langues propulsée par l'IA Gemini de Google avec exercices adaptatifs.
-- [Pizzeria Chartrettes](https://mousequetaire.com/portfolio/8): Site vitrine complet avec système de commande en ligne pour un restaurant.
+- [Pizzeria Chartrettes](https://mousequetaire.com/portfolio/10): Site vitrine optimisé pour le référencement local d'une pizzeria.
 
 ## Contact
 
