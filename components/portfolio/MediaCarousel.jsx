@@ -30,7 +30,7 @@ export default function MediaCarousel({ images, title, priority = false, sizes }
   const many = images.length > 1;
 
   return (
-    <div className="group/carousel relative h-full w-full bg-black">
+    <div className="group/carousel relative h-full w-full">
       <div
         ref={trackRef}
         onScroll={onScroll}

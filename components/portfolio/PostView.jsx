@@ -116,9 +116,18 @@ export default function PostView({ project, variant = "modal", className = "" })
       <PostHeader project={project} className="border-b border-white/10 md:hidden" />
 
       <div
-        className="relative aspect-4/3 w-full select-none md:aspect-auto md:h-full md:min-w-0 md:flex-1"
+        className="relative aspect-4/3 w-full select-none overflow-hidden bg-black md:h-full md:w-auto md:min-w-0 md:shrink md:grow"
         onDoubleClick={likeFromMedia}
       >
+        {/* fond flou aux couleurs du projet, visible autour du visuel */}
+        <Image
+          src={project.cover}
+          alt=""
+          aria-hidden
+          fill
+          sizes="300px"
+          className="scale-125 object-cover opacity-45 blur-2xl"
+        />
         <MediaCarousel images={project.gallery} title={project.title} priority />
         {burst > 0 && (
           <HeartSolid
@@ -129,7 +138,7 @@ export default function PostView({ project, variant = "modal", className = "" })
         )}
       </div>
 
-      <div className="flex w-full flex-col md:min-h-0 md:w-[380px] md:shrink-0 md:border-l md:border-white/10 lg:w-[420px]">
+      <div className="flex w-full flex-col md:min-h-0 md:w-[380px] md:shrink-0 md:border-l md:border-white/10 lg:w-[440px]">
         <PostHeader project={project} className="hidden border-b border-white/10 md:flex" />
 
         {/* Actions — en premier sur mobile, comme sous une photo Instagram */}

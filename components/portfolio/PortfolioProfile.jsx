@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowLeftIcon,
@@ -125,57 +126,33 @@ export default function PortfolioProfile({ items, categories }) {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#050610] text-white">
-      {/* halo d'ambiance */}
+      {/* ambiance : halo doux sous la barre de navigation + trame de points */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[900px] -translate-x-1/2 rounded-full bg-sky-500/15 blur-[120px]"
+        className="pointer-events-none absolute inset-x-0 top-[100px] h-[900px]"
+        style={{
+          background:
+            "radial-gradient(45% 50% at 50% 40%, rgba(56,189,248,.13), transparent 70%), radial-gradient(30% 35% at 80% 30%, rgba(217,70,239,.07), transparent 70%), radial-gradient(30% 35% at 20% 55%, rgba(99,102,241,.08), transparent 70%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-[100px] hidden h-[900px] opacity-60 md:block"
+        style={{
+          backgroundImage: "radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+          maskImage: "radial-gradient(60% 55% at 50% 35%, #000 20%, transparent 75%)",
+          WebkitMaskImage: "radial-gradient(60% 55% at 50% 35%, #000 20%, transparent 75%)",
+        }}
       />
 
-      <div className="relative mx-auto max-w-[975px] px-0 pb-24 pt-28 sm:px-5 md:pt-32">
-        {/* ---------- En-tête du profil ---------- */}
-        <header className="flex gap-5 px-4 sm:gap-10 sm:px-0 md:gap-20 md:px-10">
-          <div className="shrink-0">
-            <span className="hidden md:block">
-              <Avatar size={150} />
-            </span>
-            <span className="md:hidden">
-              <Avatar size={86} />
-            </span>
-          </div>
-
-          <div className="min-w-0 flex-1 space-y-4">
-            <div className="flex flex-wrap items-center gap-3">
-              <h1 className="mr-2 text-xl font-medium tracking-tight sm:text-2xl">mousequetaire</h1>
-              <div className="flex gap-2">
-                <Link
-                  href="/contact"
-                  className="rounded-lg bg-sky-500 px-4 py-1.5 text-sm font-semibold text-[#041018] transition hover:bg-sky-400"
-                >
-                  Nous contacter
-                </Link>
-                <a
-                  href="https://instagram.com/mousequetaire"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-lg bg-white/10 px-4 py-1.5 text-sm font-semibold transition hover:bg-white/15"
-                >
-                  Instagram
-                </a>
-              </div>
-            </div>
-
-            <ul className="hidden gap-10 md:flex">
-              {stats.map((s) => (
-                <li key={s.label}>
-                  <span className="font-semibold">{s.value}</span>{" "}
-                  <span className="text-white/70">{s.label}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="hidden text-sm leading-relaxed md:block">
-              <Bio />
-            </div>
+      <div className="relative mx-auto max-w-[975px] px-0 pb-24 pt-28 sm:px-5 md:px-8 md:pt-28 lg:max-w-[1180px] 2xl:max-w-[1320px]">
+        {/* ---------- En-tête du profil : mobile ---------- */}
+        <header className="flex gap-5 px-4 sm:gap-10 sm:px-0 md:hidden">
+          <Avatar size={86} />
+          <div className="min-w-0 flex-1 space-y-3">
+            <h1 className="text-xl font-medium tracking-tight">mousequetaire</h1>
+            <ProfileButtons />
           </div>
         </header>
 
@@ -183,7 +160,6 @@ export default function PortfolioProfile({ items, categories }) {
           <Bio />
         </div>
 
-        {/* ---------- Stats mobile ---------- */}
         <ul className="mt-5 grid grid-cols-3 border-y border-white/10 py-3 text-center text-sm md:hidden">
           {stats.map((s) => (
             <li key={s.label} className="flex flex-col">
@@ -193,10 +169,70 @@ export default function PortfolioProfile({ items, categories }) {
           ))}
         </ul>
 
+        {/* ---------- En-tête du profil : ordinateur ---------- */}
+        <header
+          className="relative hidden items-center gap-12 overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.035] p-10 shadow-[0_40px_100px_-40px_rgba(0,0,0,.9)] backdrop-blur-xl md:flex lg:gap-16 lg:p-12"
+          style={{ animation: "mq-rise 0.6s both cubic-bezier(.2,.7,.2,1)" }}
+        >
+          <span
+            aria-hidden
+            className="absolute inset-x-12 top-0 h-px bg-linear-to-r from-transparent via-sky-400/70 to-transparent"
+          />
+          <span
+            aria-hidden
+            className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-fuchsia-500/10 blur-3xl"
+          />
+
+          <div className="relative shrink-0">
+            <span aria-hidden className="absolute -inset-4 rounded-full bg-sky-500/20 blur-2xl" />
+            <span className="relative block h-[168px] w-[168px] lg:h-[184px] lg:w-[184px]">
+              <span
+                aria-hidden
+                className="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,#38bdf8,#6366f1,#d946ef,#f59e0b,#38bdf8)]"
+                style={{ animation: "mq-spin 12s linear infinite" }}
+              />
+              <span className="absolute inset-[3px] overflow-hidden rounded-full border-[5px] border-[#0b0e1a] bg-white">
+                <Image src="/images/portfolio/avatar.webp" alt="Mousequetaire" fill sizes="184px" priority />
+              </span>
+            </span>
+          </div>
+
+          <div className="relative min-w-0 flex-1">
+            <div className="flex flex-wrap items-start justify-between gap-6">
+              <div>
+                <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-sky-300/90">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_10px_#34d399]" />
+                  Disponibles pour vos projets
+                </p>
+                <h1 className="mt-2 text-4xl font-semibold tracking-tight lg:text-5xl">mousequetaire</h1>
+                <p className="mt-2 text-white/55">Agence web & IA · Île-de-France</p>
+              </div>
+              <ProfileButtons large />
+            </div>
+
+            <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-white/75">
+              Sites vitrines, applications sur mesure, IA et e-commerce — du croquis à la mise en
+              ligne. Tous pour un, un site pour tous. 🐭⚔️
+            </p>
+
+            <dl className="mt-8 grid max-w-2xl grid-cols-3 gap-3">
+              {stats.map((s) => (
+                <div
+                  key={s.label}
+                  className="rounded-2xl border border-white/10 bg-white/[0.04] px-5 py-4 transition hover:border-white/20 hover:bg-white/[0.06]"
+                >
+                  <dd className="text-3xl font-semibold tabular-nums tracking-tight">{s.value}</dd>
+                  <dt className="mt-0.5 text-xs uppercase tracking-[0.14em] text-white/50">{s.label}</dt>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </header>
+
         {/* ---------- Stories à la une : filtres par catégorie ---------- */}
         <nav
           aria-label="Catégories"
-          className="mt-6 flex gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] sm:gap-8 sm:px-0 md:mt-12 md:px-10 [&::-webkit-scrollbar]:hidden"
+          className="mt-6 flex gap-4 overflow-x-auto px-4 pb-2 [scrollbar-width:none] sm:gap-8 sm:px-0 md:mt-12 md:justify-center md:gap-10 md:overflow-visible [&::-webkit-scrollbar]:hidden"
         >
           {categories.map((c) => {
             const Icon = HIGHLIGHT_ICONS[c.id] || SparklesIcon;
@@ -209,16 +245,16 @@ export default function PortfolioProfile({ items, categories }) {
                 type="button"
                 onClick={() => setCategory(c.id)}
                 aria-pressed={active}
-                className="group flex w-16 shrink-0 flex-col items-center gap-1.5 sm:w-20"
+                className="group flex w-16 shrink-0 flex-col items-center gap-1.5 sm:w-20 md:w-24"
               >
                 <span
-                  className={`rounded-full p-[2.5px] transition ${
+                  className={`rounded-full p-[2.5px] transition duration-300 md:group-hover:-translate-y-1 ${
                     active
-                      ? "bg-linear-to-tr from-sky-400 via-indigo-500 to-fuchsia-500"
-                      : "bg-white/15 group-hover:bg-white/30"
+                      ? "bg-linear-to-tr from-sky-400 via-indigo-500 to-fuchsia-500 md:shadow-[0_10px_30px_-8px_rgba(99,102,241,.8)]"
+                      : "bg-white/15 group-hover:bg-white/35"
                   }`}
                 >
-                  <span className="flex h-14 w-14 items-center justify-center rounded-full border-[3px] border-[#050610] bg-[#10131f] sm:h-[70px] sm:w-[70px]">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-full border-[3px] border-[#050610] bg-[#10131f] sm:h-[70px] sm:w-[70px] md:h-[78px] md:w-[78px]">
                     <Icon
                       className={`h-6 w-6 transition sm:h-7 sm:w-7 ${
                         active ? "text-white" : "text-white/70 group-hover:text-white"
@@ -227,35 +263,40 @@ export default function PortfolioProfile({ items, categories }) {
                   </span>
                 </span>
                 <span
-                  className={`max-w-full truncate text-xs ${active ? "font-semibold text-white" : "text-white/75"}`}
+                  className={`max-w-full truncate text-xs md:text-[13px] ${active ? "font-semibold text-white" : "text-white/75"}`}
                 >
                   {c.label}
                 </span>
-                <span className="sr-only">{count} projets</span>
+                <span className="hidden text-[11px] tabular-nums text-white/35 md:block">
+                  {count} projet{count > 1 ? "s" : ""}
+                </span>
+                <span className="sr-only md:hidden">{count} projets</span>
               </button>
             );
           })}
         </nav>
 
         {/* ---------- Onglets ---------- */}
-        <div
-          role="tablist"
-          className="mt-4 flex justify-around border-t border-white/10 md:mt-8 md:justify-center md:gap-14"
-        >
-          {TABS.map(({ id, label, Icon }) => (
-            <button
-              key={id}
-              role="tab"
-              aria-selected={tab === id}
-              onClick={() => setTab(id)}
-              className={`-mt-px flex items-center gap-1.5 border-t py-3.5 text-xs font-semibold uppercase tracking-[0.12em] transition ${
-                tab === id ? "border-white text-white" : "border-transparent text-white/45 hover:text-white/70"
-              }`}
-            >
-              <Icon className="h-5 w-5 md:h-3.5 md:w-3.5" />
-              <span className="hidden md:inline">{label}</span>
-            </button>
-          ))}
+        <div className="relative mt-4 flex items-center border-t border-white/10 md:mt-10">
+          <div role="tablist" className="flex flex-1 justify-around md:justify-center md:gap-14">
+            {TABS.map(({ id, label, Icon }) => (
+              <button
+                key={id}
+                role="tab"
+                aria-selected={tab === id}
+                onClick={() => setTab(id)}
+                className={`-mt-px flex items-center gap-1.5 border-t py-3.5 text-xs font-semibold uppercase tracking-[0.12em] transition md:py-4 ${
+                  tab === id ? "border-white text-white" : "border-transparent text-white/45 hover:text-white/70"
+                }`}
+              >
+                <Icon className="h-5 w-5 md:h-4 md:w-4" />
+                <span className="hidden md:inline">{label}</span>
+              </button>
+            ))}
+          </div>
+          <span className="absolute right-0 hidden text-xs tabular-nums text-white/40 md:block">
+            {visible.length} publication{visible.length > 1 ? "s" : ""}
+          </span>
         </div>
 
         {visible.length ? (
@@ -280,7 +321,7 @@ export default function PortfolioProfile({ items, categories }) {
           role="dialog"
           aria-modal="true"
           aria-label={openProject.title}
-          className="fixed inset-0 z-[4000] flex items-center justify-center bg-black/80 backdrop-blur-sm md:p-10"
+          className="fixed inset-0 z-[4000] flex items-center justify-center bg-[#03040a]/85 backdrop-blur-md md:p-10"
           style={{ animation: "mq-fade 0.2s ease-out" }}
           onClick={close}
         >
@@ -288,9 +329,9 @@ export default function PortfolioProfile({ items, categories }) {
             type="button"
             onClick={close}
             aria-label="Fermer"
-            className="absolute right-4 top-4 hidden text-white/90 hover:text-white md:block"
+            className="absolute right-5 top-5 hidden h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white backdrop-blur transition hover:rotate-90 hover:bg-white/20 md:flex"
           >
-            <XMarkIcon className="h-8 w-8" />
+            <XMarkIcon className="h-6 w-6" />
           </button>
 
           {pos > 0 && (
@@ -301,9 +342,9 @@ export default function PortfolioProfile({ items, categories }) {
                 step(-1);
               }}
               aria-label="Projet précédent"
-              className="absolute left-3 top-1/2 hidden h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white text-black shadow-lg hover:bg-white/85 md:flex lg:left-6"
+              className="absolute left-4 top-1/2 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white shadow-xl backdrop-blur transition hover:scale-105 hover:bg-white/20 md:flex lg:left-8"
             >
-              <ChevronLeftIcon className="h-5 w-5" />
+              <ChevronLeftIcon className="h-6 w-6" />
             </button>
           )}
           {pos < list.length - 1 && (
@@ -314,14 +355,14 @@ export default function PortfolioProfile({ items, categories }) {
                 step(1);
               }}
               aria-label="Projet suivant"
-              className="absolute right-3 top-1/2 hidden h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white text-black shadow-lg hover:bg-white/85 md:flex lg:right-6"
+              className="absolute right-4 top-1/2 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white shadow-xl backdrop-blur transition hover:scale-105 hover:bg-white/20 md:flex lg:right-8"
             >
-              <ChevronRightIcon className="h-5 w-5" />
+              <ChevronRightIcon className="h-6 w-6" />
             </button>
           )}
 
           <div
-            className="flex h-full w-full flex-col overflow-y-auto bg-[#0b0d18] md:h-[min(88vh,820px)] md:max-w-[1240px] md:overflow-hidden md:rounded-md md:shadow-2xl"
+            className="flex h-full w-full flex-col overflow-y-auto bg-[#0b0d18] md:h-[min(84vh,860px)] md:w-auto md:max-w-[calc(100vw-10rem)] md:overflow-hidden md:rounded-2xl md:border md:border-white/10 md:shadow-[0_50px_120px_-20px_rgba(0,0,0,.9)]"
             style={{ animation: "mq-zoom 0.25s cubic-bezier(.2,.7,.2,1)" }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -356,6 +397,19 @@ export default function PortfolioProfile({ items, categories }) {
               </button>
             </div>
           </div>
+          {/* Aide clavier (ordinateur) */}
+          <p className="pointer-events-none absolute bottom-4 left-1/2 hidden -translate-x-1/2 items-center gap-3 text-xs text-white/40 md:flex">
+            <span className="tabular-nums text-white/60">
+              {pos + 1} / {list.length}
+            </span>
+            <span aria-hidden>·</span>
+            <kbd className="rounded border border-white/15 px-1.5 py-0.5 font-sans">←</kbd>
+            <kbd className="rounded border border-white/15 px-1.5 py-0.5 font-sans">→</kbd>
+            naviguer
+            <span aria-hidden>·</span>
+            <kbd className="rounded border border-white/15 px-1.5 py-0.5 font-sans">Échap</kbd>
+            fermer
+          </p>
         </div>
       )}
     </div>
@@ -376,5 +430,31 @@ function Bio() {
         mousequetaire.com/nosservices
       </Link>
     </>
+  );
+}
+
+function ProfileButtons({ large = false }) {
+  const size = large ? "rounded-xl px-5 py-2.5" : "rounded-lg px-4 py-1.5";
+  return (
+    <div className="flex gap-2">
+      <Link
+        href="/contact"
+        className={`${size} bg-sky-500 text-sm font-semibold text-[#041018] transition hover:bg-sky-400 ${
+          large ? "shadow-[0_10px_30px_-10px_rgba(56,189,248,.9)] hover:-translate-y-0.5" : ""
+        }`}
+      >
+        Nous contacter
+      </Link>
+      <a
+        href="https://instagram.com/mousequetaire"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`${size} border border-white/10 bg-white/10 text-sm font-semibold transition hover:bg-white/15 ${
+          large ? "hover:-translate-y-0.5" : ""
+        }`}
+      >
+        Instagram
+      </a>
+    </div>
   );
 }

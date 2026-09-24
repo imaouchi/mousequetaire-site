@@ -40,11 +40,13 @@ export default function ProjectDetailsClient({ project }) {
     <div className="relative min-h-screen overflow-hidden bg-[#050610] text-white">
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[900px] -translate-x-1/2 rounded-full blur-[120px]"
-        style={{ background: `${project.accent}26` }}
+        className="pointer-events-none absolute inset-x-0 top-[100px] h-[900px]"
+        style={{
+          background: `radial-gradient(45% 50% at 50% 40%, ${project.accent}24, transparent 70%)`,
+        }}
       />
 
-      <div className="relative mx-auto max-w-[975px] pb-24 pt-24 md:px-5 md:pt-32">
+      <div className="relative mx-auto max-w-[975px] pb-24 pt-24 md:px-8 md:pt-32 lg:max-w-[1180px] 2xl:max-w-[1320px]">
         <Link
           href="/portfolio"
           className="mb-4 inline-flex items-center gap-2 px-4 text-sm font-semibold text-white/80 hover:text-white md:px-0"
@@ -55,7 +57,7 @@ export default function ProjectDetailsClient({ project }) {
         <PostView
           project={project}
           variant="page"
-          className="border-y border-white/10 md:h-[600px] md:rounded-md md:border"
+          className="border-y border-white/10 md:h-[540px] md:rounded-2xl md:border md:shadow-[0_40px_100px_-40px_rgba(0,0,0,.9)] 2xl:h-[620px]"
         />
 
         <div className="mt-4 flex justify-between px-4 text-sm font-semibold md:px-0">
