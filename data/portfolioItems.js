@@ -22,7 +22,6 @@ const visuals = (slug, slides) => ({
 
 const projects = [
   {
-<<<<<<< Updated upstream
     id: 1,
     slug: "murder-party",
     title: "Murder Party App",
@@ -67,8 +66,6 @@ const projects = [
     ...visuals("rackoon-streaming", 1),
   },
   {
-=======
->>>>>>> Stashed changes
     id: 3,
     slug: "cci-reservation-bureaux",
     title: "Réservation de bureaux CCI",
@@ -92,7 +89,6 @@ const projects = [
     ...visuals("cci-reservation-bureaux", 3),
   },
   {
-<<<<<<< Updated upstream
     id: 4,
     slug: "lingua-gem",
     title: "Apprentissage de langues IA",
@@ -115,8 +111,6 @@ const projects = [
     ...visuals("lingua-gem", 3),
   },
   {
-=======
->>>>>>> Stashed changes
     id: 5,
     slug: "conges-chartrettes",
     title: "Congés Chartrettes",
@@ -140,7 +134,6 @@ const projects = [
     ...visuals("conges-chartrettes", 3),
   },
   {
-<<<<<<< Updated upstream
     id: 6,
     slug: "pokemon-battle-detector",
     title: "PokémonBattleDetector",
@@ -229,8 +222,6 @@ const projects = [
     ...visuals("mousequetaire-shop", 3),
   },
   {
-=======
->>>>>>> Stashed changes
     id: 10,
     slug: "pizzeria-dolce-vita",
     title: "Pizzeria La Dolce Vita",
@@ -275,7 +266,6 @@ const projects = [
     linkLabel: "Visiter le site",
     ...visuals("reservation-salles-chartrettes", 5),
   },
-<<<<<<< Updated upstream
   {
     id: 12,
     slug: "yodea",
@@ -408,8 +398,6 @@ const projects = [
     linkLabel: "Visiter le site",
     ...visuals("site-mousequetaire", 4),
   },
-=======
->>>>>>> Stashed changes
 ];
 
 // Ordre d'affichage façon Instagram : épinglés d'abord, puis du plus récent
