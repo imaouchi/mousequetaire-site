@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
+import AmbientBackground from "@/components/AmbientBackground";
 import { ModalProvider } from "@/context/ModalContext";
 import { GSAPProvider } from "@/context/GSAPContext";
 import PageLoader from "@/context/PageLoader";
@@ -139,7 +140,8 @@ export default function RootLayout({ children }) {
             <ModalProvider>
               <PageLoader />
               <Navbar />
-              <main className="w-full py-16 pt-32 bg-[#050610] min-h-screen overflow-x-hidden">
+              <main className="relative w-full py-16 pt-32 bg-[#050610] min-h-screen overflow-x-hidden">
+                <AmbientBackground />
                 {children}
               </main>
               <BackToTop />

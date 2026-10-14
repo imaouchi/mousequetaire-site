@@ -3,7 +3,7 @@ import ContactPageClient from "@/components/contact/ContactPageClient";
 export default function Contact() {
   return (
     <>
-      <main className="pt-24 -pb-20 bg-[#050610] min-h-screen font-montserrat">
+      <main className="pt-24 -pb-20 min-h-screen font-montserrat">
         {/* Static SEO content - visible to crawlers */}
         <div className="sr-only">
           <h1>Contactez Mousequetaire</h1>

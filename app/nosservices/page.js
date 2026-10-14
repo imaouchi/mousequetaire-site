@@ -69,7 +69,7 @@ const renderAnimation = (type) => {
 export default function Services() {
   return (
     <>
-      <main className="pt-24 pb-16 bg-[#050610] min-h-screen px-3 sm:px-4 md:px-8 lg:px-12 xl:px-48">
+      <main className="pt-24 pb-16 min-h-screen px-3 sm:px-4 md:px-8 lg:px-12 xl:px-48">
         <div className="container mx-auto">
           {/* Header Section */}
           <ScrollReveal animation="fade-down">
