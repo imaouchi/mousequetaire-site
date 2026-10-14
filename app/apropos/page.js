@@ -49,7 +49,7 @@ export default function Equipe() {
               Qui sommes nous ?
             </h1>
             <p>
-              Nous sommes trois passionn&eacute;s qui, autour d&apos;un bon repas et de
+              Nous sommes quatre passionn&eacute;s qui, autour d&apos;un bon repas et de
               discussions enflamm&eacute;es, avons donn&eacute; vie &agrave; Mouse-quetaires en 2025.
               Notre histoire ? Celle d&apos;amis qui partagent un r&ecirc;ve simple
               mais ambitieux : rendre la technologie et l&apos;IA vraiment
